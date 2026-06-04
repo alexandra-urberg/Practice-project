@@ -1,0 +1,13 @@
+name: Issue Output
+on:
+  issues:
+    types: [opened, edited, labeled, unlabeled]
+jobs:
+  output_issue_information:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output issue information
+        run: |
+          echo "Issue title: ${{ github.event.issue.title }}"
+          echo "Issue body: ${{ github.event.issue.body }}"
+          echo "Issue labels: ${{ github.event.issue.labels }}"
